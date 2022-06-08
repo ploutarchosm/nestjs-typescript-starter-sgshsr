@@ -7,7 +7,7 @@ import { ApplicationService } from '../services/app.service';
 import { HttpModule } from '@nestjs/axios';
 
 @Module({
-  imports: [AppConfigModule],
+  imports: [AppConfigModule, HttpModule],
   controllers: [AppController],
   providers: [
     ApplicationService,
