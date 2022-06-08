@@ -10,7 +10,8 @@ const getDirectories = async (source) =>
     .map((dirent) => dirent.name);
 
 (async () => {
-  const dir = await getDirectories('./websites');
+  const path = join.resolve(__dirname, '..', 'src', 'websites');
+  const dir = await getDirectories(path);
 
   console.log(dir);
 })();
