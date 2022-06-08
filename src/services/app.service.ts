@@ -10,7 +10,7 @@ export class ApplicationService {
       { domain: 'website2.com', settings: {} },
     ]);
   }
-  async setting(domain: string) {
+  async data(domain: string) {
     return await this.db.getCollection().filter((x) => x.domain === domain);
   }
 }
