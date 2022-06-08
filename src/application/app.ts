@@ -39,21 +39,25 @@ export class Application {
     const config = this.application.get(ConfigService);
     const appConfig = config.get(this.name);
 
+    // Set Middlewares
     this.application.enableCors();
-    this.application.use(helmet({
-      contentSecurityPolicy: false,
-    }));
-
+    // this.application.use(
+    //   helmet({
+    //     contentSecurityPolicy: false,
+    //   }),
+    // );
     this.application.use(cookieParser(appConfig.websiteConfig));
     this.application.use(csrf({ cookie: true }));
     this.application.use(
       ApplicationMiddleware({ name: this.name, domain: appConfig.domain }),
     );
 
+    // Setup MVC
     this.application.useStaticAssets(this.path + '/public');
     this.application.setBaseViewsDir(this.path + '/views');
     this.application.setViewEngine('hbs');
 
+    // Listen Application
     await this.application.listen(appConfig.port, () => {
       console.log(`Application domain: ` + appConfig.domain);
       console.log(`Started at port: ` + appConfig.port);
