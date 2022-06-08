@@ -2,7 +2,11 @@ import { AppModule } from './application/app.module';
 import { Application } from './application/app';
 import { useContainer } from 'class-validator';
 import * as join from 'path';
+import { initial } from './apps';
 
+const d = initial();
+
+console.log(d);
 const website1 = new Application(
     join.resolve(__dirname, '..', 'src', 'websites', 'website1'),
     'website1',
