@@ -1,20 +1,20 @@
 import { Application } from './application/app';
 import * as join from 'path';
-const {
-  promises: { readdir },
-} = require('fs');
+// const {
+//   promises: { readdir },
+// } = require('fs');
 
-const getDirectories = async (source) =>
-  (await readdir(source, { withFileTypes: true }))
-    .filter((dirent) => dirent.isDirectory())
-    .map((dirent) => dirent.name);
+// const getDirectories = async (source) =>
+//   (await readdir(source, { withFileTypes: true }))
+//     .filter((dirent) => dirent.isDirectory())
+//     .map((dirent) => dirent.name);
 
-(async () => {
-  const path = join.resolve(__dirname, '..', 'src', 'websites');
-  const dir = await getDirectories(path);
+// (async () => {
+//   const path = join.resolve(__dirname, '..', 'src', 'websites');
+//   const dir = await getDirectories(path);
 
-  console.log(dir);
-})();
+//   console.log(dir);
+// })();
 
 const ApplicationList = [
   {
