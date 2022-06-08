@@ -6,6 +6,7 @@ import * as cookieParser from 'cookie-parser';
 import * as csrf from 'csurf';
 import { ConfigService } from '@nestjs/config';
 import { ApplicationMiddleware } from './app.middleware';
+import * as helmet from 'helmet';
 
 declare type ApplicationConfigurationDelegate = (
   app: NestExpressApplication,
@@ -39,6 +40,8 @@ export class Application {
     const appConfig = config.get(this.name);
 
     this.application.enableCors();
+    this.application.use(helmet());
+
     this.application.use(cookieParser(appConfig.websiteConfig));
     this.application.use(csrf({ cookie: true }));
     this.application.use(
