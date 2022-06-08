@@ -7,8 +7,8 @@ export class AppController {
   constructor(private service: ApplicationService) {}
   @Get()
   @Render('index')
-  async root(@Req() req: Request) {
+  root(@Req() req: Request) {
     const domain = req['applicationDomain'];
-    return await this.service.data(domain);
+    return this.service.data(domain);
   }
 }

@@ -5,7 +5,7 @@ import { HttpService } from '@nestjs/axios';
 export class ApplicationService {
   constructor(private httpService: HttpService) {}
 
-  async data(domain: string) {
+  data(domain: string) {
     return domain;
   }
 }
