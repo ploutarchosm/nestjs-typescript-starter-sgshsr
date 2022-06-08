@@ -1,24 +1,11 @@
 import { AppModule } from './application/app.module';
-import { Application } from './application/app';
 import { useContainer } from 'class-validator';
-import * as join from 'path';
 import { initial } from './apps';
 
-const d = initial();
+const apps = initial();
 
-console.log(d);
-const website1 = new Application(
-    join.resolve(__dirname, '..', 'src', 'websites', 'website1'),
-    'website1',
-  ),
-  website2 = new Application(
-    join.resolve(__dirname, '..', 'src', 'websites', 'website2'),
-    'website2',
+apps.forEach((app) => {
+  app.run(AppModule as any, (app) =>
+    useContainer(app.select(AppModule), { fallbackOnErrors: true }),
   );
-
-website1.run(AppModule as any, (app) =>
-  useContainer(app.select(AppModule), { fallbackOnErrors: true }),
-);
-website2.run(AppModule as any, (app) =>
-  useContainer(app.select(AppModule), { fallbackOnErrors: true }),
-);
+});
