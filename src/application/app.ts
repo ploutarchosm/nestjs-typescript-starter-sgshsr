@@ -6,7 +6,7 @@ import * as cookieParser from 'cookie-parser';
 import * as csrf from 'csurf';
 import { ConfigService } from '@nestjs/config';
 import { ApplicationMiddleware } from './app.middleware';
-import * as helmet from 'helmet';
+import helmet from 'helmet';
 
 declare type ApplicationConfigurationDelegate = (
   app: NestExpressApplication,
