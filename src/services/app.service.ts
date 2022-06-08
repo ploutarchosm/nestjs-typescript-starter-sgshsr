@@ -11,6 +11,6 @@ export class ApplicationService {
     ]);
   }
   async data(domain: string) {
-    return await this.db.getCollection().filter((x) => x.domain === domain);
+    return await this.db.getCollection();
   }
 }
