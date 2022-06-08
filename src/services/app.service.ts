@@ -14,10 +14,9 @@ export class ApplicationService {
     const data = await this.db
       .getCollection()
       .find((app) => app.domain === domain);
+    console.log(data);
     if (data) {
       return data;
-    } else {
-      throw new NotFoundException();
     }
   }
 }
