@@ -1,5 +1,19 @@
 import { Application } from './application/app';
 import * as join from 'path';
+const {
+  promises: { readdir },
+} = require('fs');
+
+const getDirectories = async (source) =>
+  (await readdir(source, { withFileTypes: true }))
+    .filter((dirent) => dirent.isDirectory())
+    .map((dirent) => dirent.name);
+
+(async () => {
+  const dir = await getDirectories('./websites');
+
+  console.log(dir);
+})();
 
 const ApplicationList = [
   {
