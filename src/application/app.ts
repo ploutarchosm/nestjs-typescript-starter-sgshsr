@@ -40,7 +40,9 @@ export class Application {
     const appConfig = config.get(this.name);
 
     this.application.enableCors();
-    this.application.use(helmet());
+    this.application.use(helmet({
+      contentSecurityPolicy: false,
+    }));
 
     this.application.use(cookieParser(appConfig.websiteConfig));
     this.application.use(csrf({ cookie: true }));
