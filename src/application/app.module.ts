@@ -4,9 +4,10 @@ import { AppController } from '../controllers/app.controller';
 import { HttpExceptionFilter } from '../services/exception.filter.service';
 import { AppConfigModule } from '../config/app.config.module';
 import { ApplicationService } from '../services/app.service';
+import { HttpModule } from '@nestjs/axios';
 
 @Module({
-  imports: [AppConfigModule],
+  imports: [AppConfigModule, HttpModule],
   controllers: [AppController],
   providers: [
     ApplicationService,
