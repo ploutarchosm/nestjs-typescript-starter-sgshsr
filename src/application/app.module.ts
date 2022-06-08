@@ -8,6 +8,7 @@ import { AppConfigModule } from '../config/app.config.module';
   imports: [AppConfigModule],
   controllers: [AppController],
   providers: [
+    ApplicationService,
     {
       provide: APP_FILTER,
       useClass: HttpExceptionFilter,

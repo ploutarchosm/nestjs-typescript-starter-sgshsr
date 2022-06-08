@@ -41,6 +41,7 @@ export class Application {
 
     // Set Middlewares
     this.application.enableCors();
+    // Set helmet only for production
     // this.application.use(
     //   helmet({
     //     contentSecurityPolicy: false,
