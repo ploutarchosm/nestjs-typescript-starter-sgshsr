@@ -9,6 +9,6 @@ export class AppController {
   @Render('index')
   root(@Req() req: Request) {
     const domain = req['applicationDomain'];
-    return this.service.data(domain);
+    return { domain };
   }
 }
