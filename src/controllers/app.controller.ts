@@ -7,6 +7,6 @@ export class AppController {
   @Render('index')
   root(@Req() req: Request) {
     const domain = req['applicationDomain'];
-    return { message: domain };
+    return { domain };
   }
 }
