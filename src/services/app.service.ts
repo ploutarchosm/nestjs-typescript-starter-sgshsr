@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import * as FakeDb from 'fake-db';
 
 @Injectable()
@@ -11,6 +11,13 @@ export class ApplicationService {
     ]);
   }
   async data(domain: string) {
-    return await this.db.getCollection();
+    const data = await this.db
+      .getCollection()
+      .find((app) => app.domain === domain);
+    if (data) {
+      return data;
+    } else {
+      throw new NotFoundException();
+    }
   }
 }
