@@ -5,11 +5,13 @@ import { HttpExceptionFilter } from '../services/exception.filter.service';
 import { AppConfigModule } from '../config/app.config.module';
 import { ApplicationService } from '../services/app.service';
 import { HttpModule } from '@nestjs/axios';
+import { ConfigService } from '@nestjs/config';
 
 @Module({
   imports: [AppConfigModule, HttpModule],
   controllers: [AppController],
   providers: [
+    ConfigService,
     ApplicationService,
     {
       provide: APP_FILTER,
