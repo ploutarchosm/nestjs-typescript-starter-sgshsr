@@ -1,11 +1,11 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
-import { HttpService } from '@nestjs/axios';
+import { Injectable } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
 
 @Injectable()
 export class ApplicationService {
-  constructor(private httpService: HttpService) {}
+  constructor(private configService: ConfigService) {}
 
   data(domain: string) {
-    return domain;
+    return this.configService.get<{}>(domain);
   }
 }
