@@ -6,6 +6,6 @@ export class ApplicationService {
   constructor(private configService: ConfigService) {}
 
   data(domain: string) {
-    return this.configService.get<{}>(domain);
+    return this.configService.get(domain);
   }
 }
