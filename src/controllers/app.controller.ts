@@ -6,11 +6,9 @@ import { ApplicationService } from '../services/app.service';
 export class AppController {
   constructor(private service: ApplicationService) {}
   @Get()
-  @Render('index')
+  // @Render('index')
   root(@Req() req: Request) {
     const domain = req['applicationDomain'];
-    const a = this.service.data(domain);
-    console.log(a);
     return { domain };
   }
 }
